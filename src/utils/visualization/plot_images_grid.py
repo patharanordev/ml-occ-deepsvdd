@@ -24,3 +24,18 @@ def plot_images_grid(x: torch.tensor, export_img, title: str = '', nrow=8, paddi
 
     plt.savefig(export_img, bbox_inches='tight', pad_inches=0.1)
     plt.clf()
+
+def show_image(indics, img_list, label_list, export_img=None):
+    amount = 10
+    plt.figure(figsize=(25,25))
+    for i in range(len(indics)):
+        plt.subplot(1, amount, i+1)
+        plt.title(indics[i])
+        plt.imshow(img_list[indics[i]])
+        plt.axis('off')
+
+
+    if export_img!=None:
+        plt.savefig(export_img, bbox_inches='tight', pad_inches=0.1)
+        
+    plt.show()
